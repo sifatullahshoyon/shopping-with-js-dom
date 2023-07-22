@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping with js dom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.2.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+                fontFamily: {
+                roboto: ['Roboto', 'sans-serif'],
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body>
+    <header>
+        <div class="navbar bg-primary-content font-roboto shadow-lg shadow-base-200">
+            <div class="flex-1">
+              <a class="btn btn-ghost normal-case text-xl text-base-200">shopping</a>
+            </div>
+            <div class="flex-none">
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle">
+                  <div class="indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    <span class="badge badge-sm indicator-item">8</span>
+                  </div>
+                </label>
+                <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                  <div class="card-body bg-primary-content rounded">
+                    <span class="font-bold text-lg text-base-200">8 Items</span>
+                    <span class="text-info font-bold">Subtotal: $999</span>
+                    <div class="card-actions">
+                      <button class="btn btn-primary btn-block">View cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <img src="https://picsum.photos/200/300"/>
+                  </div>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                  <li>
+                    <a class="justify-between">
+                      Profile
+                      <span class="badge">New</span>
+                    </a>
+                  </li>
+                  <li><a>Settings</a></li>
+                  <li><a>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End Nav bar -->
+    </header>
+    <!-- End Header -->
+    <main>
+       <section class="mb-10">
+        <div class="continer md:flex w-full gap-x-12 font-roboto px-5">
+          <div class="cart-details w-full md:w-3/5 text-white w-3/4">
+            <div class="grid gird-rows-1 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 pt-10 gap-x-6 gap-y-6 ">
+              <!-- card 1 -->
+              <div class="card card-compact w-full bg-base-100 shadow-xl">
+                <figure><img src="./img/coffee.jpg" class="img-fluid" alt="coffee" /></figure>
+                <div class="card-body">
+                  <h2 id="frist-product-name" class="card-title text-white">Coffee</h2>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, omnis.</p>
+                  <p>Price: $<span id="frist-product-price">110</span></p>
+                  <p>Quantity: <span id="frist-product-quantity">5</span></p>
+                  <div class="card-actions justify-end">
+                    <button id="coffee-btn" class="btn btn-primary">ADD TO CART</button>
+                  </div>
+                </div>
+              </div>
+              <!-- card 2 -->
+              <div class="card card-compact w-full bg-base-100 shadow-xl">
+                <figure><img src="./img/heart_js.jpg" alt="heart" class="img-fluid w-full h-40" /></figure>
+                <div class="card-body">
+                  <h2 class="card-title text-white">Heart JS</h2>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, omnis.</p>
+                  <p>Price: $<span id="heart-price">200</span></p>
+                  <p>Quantity: <span id="heart-quantity">10</span></p>
+                  <div class="card-actions justify-end">
+                    <button id="heart-btn" class="btn btn-primary">ADD TO CART</button>
+                  </div>
+                </div>
+              </div>
+              <!-- card 3 -->
+              <div class="card card-compact w-full bg-base-100 shadow-xl">
+                <figure><img src="./img/panda.png" class="img-fluid w-full h-40" alt="panda" /></figure>
+                <div class="card-body">
+                  <h2 id="third-product-name" class="card-title text-white">Panda JS</h2>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, omnis.</p>
+                  <p>Price: $<span id="third-product-price">250</span></p>
+                  <p>Quantity: <span id="third-product-quantity">5</span></p>
+                  <div class="card-actions justify-end">
+                    <button id="panda-btn" class="btn btn-primary">ADD TO CART</button>
+                  </div>
+                </div>
+              </div>
+              <!-- card 4 -->
+              <div class="card card-compact w-full bg-base-100 shadow-xl">
+                <figure><img src="./img/umbrella.png" class="img-fluid w-full h-40" alt="umbrella" /></figure>
+                <div class="card-body">
+                  <h2 id="four-product-name" class="card-title text-white">Umbrella JS</h2>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, omnis.</p>
+                  <p>Price: $<span id="four-product-price">100</span></p>
+                  <p>Quantity: <span id="four-product-quantity">3</span></p>
+                  <div class="card-actions justify-end">
+                    <button id="umbrella-btn" class="btn btn-primary">ADD TO CART</button>
+                  </div>
+                </div>
+              </div>
+              <!-- card 5 -->
+              <div class="card card-compact w-full bg-base-100 shadow-xl">
+                <figure><img src="./img/vue-js.jpg" class="img-fluid w-full h-40" alt="vue-js pic" /></figure>
+                <div class="card-body">
+                  <h2 id="five-product-name" class="card-title text-white">Vue Js</h2>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, omnis.</p>
+                  <input
+                  type="text"
+                  id="first-input"
+                  placeholder="Price"
+                  class="input input-bordered input-sm w-full max-w-xs"
+                />
+                <input
+                type="text"
+                id="second-input"
+                placeholder="Quality"
+                class="input input-bordered input-sm w-full max-w-xs"
+               />
+                  <div class="card-actions justify-end">
+                    <button id="vue-btn" class="btn btn-primary">ADD TO CART</button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+          </div>
+          <div class="total-product text-center  lg:w-1/4 md:w-full sm:w-full mx-auto">
+            <div class="grid gird-rows-1 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1">
+              <h1 class="text-3xl text-center font-bold underline mt-5 text-white pb-5">
+                ToTal Products : <span id="total-product">0</span>
+              </h1>
+              <div class="overflow-x-auto">
+                <table class="table w-full bg-slate-700	">
+                  <thead class="text-white text-2xl">
+                    <tr>
+                      <th>No</th>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-container">
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+       </section>
+    </main>
+    <!-- End Main -->
+    <footer></footer>
+    <!-- End Footer -->
+    <!-- Add Javascript -->
+    <script src="./js/shopping.js"></script>
+</body>
+</html>
+
